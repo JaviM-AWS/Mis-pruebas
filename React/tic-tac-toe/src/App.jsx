@@ -24,7 +24,7 @@ const WINNER_COMBOS = [
   [3, 4, 5],
   [6, 7, 8],
   [0, 3, 6],
-  [1, 4, 7],
+  [1, 4, 7], 
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6]
@@ -65,6 +65,12 @@ function App() {
     if (newWinner) {
       
       setWinner(newWinner)
+    }else{
+      // Verificar si todas las casillas están llenas
+    const isBoardFull = newBoard.every(square => square !== null);
+    if (isBoardFull) {
+      setWinner('Empate'); // Establecer el estado del ganador como 'Empate'
+    }
     }
   }
 
@@ -101,7 +107,7 @@ function App() {
               <div className='text'>
               <h2>
                 {
-                  winner === false ? 'Empate' : 'El ganador es: '
+                  winner === 'Empate' ? '' : 'El ganador es: '
                 }
                 </h2>
 
