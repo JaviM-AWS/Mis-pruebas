@@ -9,3 +9,8 @@ export const checkWinnerFrom = (boardToCheck) => {
     }
     return null
   }
+
+export const checkEndGame = (newBoard) => {
+    // Si todas las square (every) son diferentes a null (son ❌ o ⚪)
+    return newBoard.every(square => square !== null)
+  }
