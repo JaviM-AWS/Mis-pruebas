@@ -10,11 +10,13 @@ function App() {
     }
     if(enabled){
       window.addEventListener('pointermove', handleMove)
+      document.body.classList.add('no-cursor');
     }
 
     //Este hook se ejecuta cuando el componente se desmonta o cuando cambia el valor de enabled.
     return () => {
       window.removeEventListener('pointermove', handleMove)
+      document.body.classList.remove('no-cursor');
     }
   },[enabled])
 
